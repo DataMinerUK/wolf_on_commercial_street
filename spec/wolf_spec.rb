@@ -5,11 +5,11 @@ require 'wolf'
 describe 'wolf' do
 
   it 'returns the most profitable buy day and sell day' do
-    expect(wolf([3,2,5,6,2])).to eq({ 'buy_day': 1, 'sell_day': 3 })
+    expect(wolf([3,2,5,6,2])).to eq({ 'buy_day'=> 1, 'sell_day'=> 3 })
   end
 
   it 'returns the most profitable buy day and sell day' do
-    expect(wolf([10,2,5,8,9,1,6,7,9,8])).to eq({ 'buy_day': 5, 'sell_day': 8 })
+    expect(wolf([10,2,5,8,9,1,6,7,9,8])).to eq({ 'buy_day'=> 5, 'sell_day'=> 8 })
   end
 
 end

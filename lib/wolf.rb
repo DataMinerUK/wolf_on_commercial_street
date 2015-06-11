@@ -1,13 +1,11 @@
-def wolf(stocks)
-  stocks2 = stocks
-  p stocks2
-  p (day_to_buy(stocks)['buy_day']).class
-  buy_day = day_to_buy(stocks)['buy_day']
-  p buy_day.class
-  p stocks2[buy_day]
-  # sell_price = stock_price[day_to_buy(stock_price)['buy_day']] + day_to_buy(stock_price)['max_profit']
-  # sell_day = stock_price.index(sell_price)
-  # {'buy_day' => day_to_buy(stock_price)['buy_day'], 'sell_day' => sell_day}
+def wolf(stock_price)
+  daily_price = stock_price.dup
+  buy_profit = day_to_buy(stock_price)
+  buy_day = buy_profit['buy_day']
+  profit = buy_profit['max_profit']
+  sell_price = daily_price[buy_day] + profit
+  sell_day = daily_price[buy_day..daily_price.length-1].index(sell_price) + buy_day
+  {'buy_day' => buy_day, 'sell_day' => sell_day}
 end
 
 def day_to_buy(stock_price)
